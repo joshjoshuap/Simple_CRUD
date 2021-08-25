@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('partials/header')%>
+  <body>
+    <!-- Sending Updated Data  Using PUT -->
+    <div class="d-flex vh-100 justify-content-center align-items-center">
+      <div class="container w-50">
+        <div class="row">
+          <div class="col">
+            <form
+              action="/<%= users._id %>?_method=PUT"
+              method="POST"
+              class="text-center"
+            >
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <td colspan="2"><h1>Edit User</h1></td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><label for="username"> Username: </label></td>
+                    <td>
+                      <input
+                        type="text"
+                        name="username"
+                        id="username"
+                        value="<%= users.username %>"
+                      />
+                      <br />
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td><label for="password"> Password: </label></td>
+                    <td>
+                      <input
+                        type="password"
+                        name="password"
+                        id="password"
+                        value="<%= users.password %>"
+                      />
+                      <br />
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td><label for="firstname"> Firstname: </label></td>
+                    <td>
+                      <input
+                        type="text"
+                        name="firstName"
+                        id="firstname"
+                        value="<%= users.firstName %>"
+                      />
+                      <br />
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td><label for="lastname"> Lastname: </label></td>
+                    <td>
+                      <input
+                        type="text"
+                        name="lastName"
+                        id="lastname"
+                        value="<%= users.lastName %>"
+                      />
+                      <br />
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td><label for="age"> Age: </label></td>
+                    <td>
+                      <input
+                        type="number"
+                        name="age"
+                        id="age"
+                        value="<%= users.age %>"
+                      />
+                      <br />
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td><label for="address"> Address: </label></td>
+                    <td>
+                      <input
+                        type="text"
+                        name="address"
+                        id="address"
+                        value="<%= users.address %>"
+                      />
+                      <br />
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td><label for="contact"> Contact: </label></td>
+                    <td>
+                      <input
+                        type="number"
+                        name="contact"
+                        id="contact"
+                        value="<%= users.contact %>"
+                      />
+                      <br />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <button class="btn btn-md btn-primary">Save</button>
+            </form>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <a href="http://localhost:3000/"
+              ><button class="btn btn-lg btn-dark">Home</button></a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
