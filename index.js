@@ -34,24 +34,25 @@ app.set("views", path.join(__dirname, "/views")); // to run server from other di
 app.get("/", async (req, res) => {
   // Finding - Retrieving adn Displaying data
   const users = await UserData.find({});
-  res.render("index", { users });
+  res.render("index", { users }); // sending index.ejs
 });
 
 // addUser.ejs
 app.get("/adduser", (req, res) => {
-  res.render("addUser");
+  res.render("addUser"); // sending addUser.ejs
 });
 
 // editUser.ejs
 app.get("/:id/edituser", async (req, res) => {
-  const { id } = req.params;
+  const { id } = req.params; // retrieve id
   const users = await UserData.findById(id);
-  res.render("editUser", { users });
+  res.render("editUser", { users }); // sending editUser.ejs
 });
 
+// CRUD
 // Adding User
 app.post("/", async (req, res) => {
-  const newUser = new UserData(req.body);
+  const newUser = new UserData(req.body); // Retrieve Data from addUser.ejs
   await newUser
     .save()
     .then((data) => {
@@ -62,15 +63,15 @@ app.post("/", async (req, res) => {
       console.log(err);
     });
 
-  res.redirect("/");
+  res.redirect("/"); // redirect to app.get('/') index.ejs
 });
 
 // Updating User
-app.put("/:id", async (req, res) => {
-  const { id } = req.params;
+app.patch("/:id", async (req, res) => {
+  const { id } = req.params; // retrieve id
   UserData.findByIdAndUpdate(id, req.body, {
     runValidators: true,
-  })
+  }) // Retrieve Data from editUser.ejs
     .then((data) => {
       console.log("Successfully Updated");
     })
@@ -79,13 +80,13 @@ app.put("/:id", async (req, res) => {
       console.log(err);
     });
 
-  res.redirect("/");
+  res.redirect("/"); // redirect to app.get('/') index.ejs
 });
 
 // Deleting User
 app.delete("/:id", async (req, res) => {
-  const { id } = req.params;
-  UserData.findByIdAndDelete(id)
+  const { id } = req.params; // retrieve id
+  UserData.findByIdAndDelete(id) // Delete data based on ID
     .then((data) => {
       console.log("Successfully Deleted");
     })
@@ -94,7 +95,7 @@ app.delete("/:id", async (req, res) => {
       console.log(err);
     });
 
-  res.redirect("/");
+  res.redirect("/"); // redirect to app.get('/') index.ejs
 });
 
 // Server Running
