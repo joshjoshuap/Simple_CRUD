@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "engines": {
-    "node": "14.18.1"
+    "node": "14.x"
   },
   "dependencies": {
     "ejs": "^3.1.6",
